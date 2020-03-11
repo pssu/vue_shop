@@ -70,10 +70,12 @@ export default {
       //     // console.log(res);
       // })
       this.$refs.loginFormRef.validate(valid => {
-        if (!valid) return
+        if (!valid) return this.message.error('登录失败！')
 
+        this.$message.success('登录成功！')
         // 模拟后端返回 token
         window.sessionStorage.setItem('token', 'Bear token')
+
         this.$router.push('/home')
       })
     }
